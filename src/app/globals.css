@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #080b18;
+  --color-fg: #eeeef2;
+  --color-accent: #b4f469;
+  --color-accent-dim: #8fcc4a;
+  --color-pain: #f87171;
+  --color-pain-glow: #f8717130;
+  --color-card: #0d1025;
+  --color-card-hover: #111535;
+  --color-card-border: #1a1f48;
+  --color-muted: #6670a0;
+  --color-muted-light: #8b94c0;
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1a1f48 #080b18;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  background: #080b18;
+  color: #eeeef2;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+}
+
+::selection {
+  background: #b4f46940;
+  color: #fff;
+}
