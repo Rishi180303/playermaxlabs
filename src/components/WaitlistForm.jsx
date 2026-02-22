@@ -182,12 +182,6 @@ export default function WaitlistForm() {
           </div>
         </div>
 
-        <p className="pt-1 font-body text-xs leading-relaxed text-muted">
-          By submitting these details you agree to our Privacy Policy. We will
-          also subscribe you to our marketing emails, but you can unsubscribe at
-          any time.
-        </p>
-
         <button
           type="submit"
           disabled={loading}
