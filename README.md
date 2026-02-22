@@ -1,6 +1,6 @@
 # PlayerMax Labs
 
-A simple marketing site for PlayerMax Labs built with Next.js.
+Landing page for PlayerMax Labs built with Next.js.
 
 ## What this project includes
 
