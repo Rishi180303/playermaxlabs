@@ -388,11 +388,6 @@ const journeySteps = {
 function StepBlock({ step, isActive }) {
   return (
     <div className="relative flex min-h-[95vh] flex-col justify-center py-16 md:min-h-screen md:py-20">
-      {/* mobile visual */}
-      <div className="mb-8 lg:hidden">
-        <step.Visual />
-      </div>
-
       <motion.div
         className="relative pl-0 lg:pl-10"
         animate={{
@@ -420,6 +415,11 @@ function StepBlock({ step, isActive }) {
           {step.desc}
         </p>
       </motion.div>
+
+      {/* mobile visual */}
+      <div className="mt-8 lg:hidden">
+        <step.Visual />
+      </div>
     </div>
   );
 }
