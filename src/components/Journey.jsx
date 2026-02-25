@@ -81,7 +81,7 @@ function WorkoutVisual() {
 function BodyMapVisual() {
   const painData = [
     { name: "Throwing shoulder soreness", muscles: ["front-deltoids", "back-deltoids"] },
-    { name: "Hamstring tightness", muscles: ["hamstring"] },
+    { name: "Thigh tightness", muscles: ["quadriceps"] },
   ];
   return (
     <div className="rounded-2xl border border-card-border bg-card p-8">
@@ -100,7 +100,7 @@ function BodyMapVisual() {
       </div>
       <div className="mt-4 flex flex-wrap justify-center gap-2">
         <span className="rounded-full border border-pain/20 bg-pain/[0.06] px-3.5 py-1.5 font-body text-xs text-pain">Shoulder - Sore</span>
-        <span className="rounded-full border border-pain/20 bg-pain/[0.06] px-3.5 py-1.5 font-body text-xs text-pain">Hamstring - Tight</span>
+        <span className="rounded-full border border-pain/20 bg-pain/[0.06] px-3.5 py-1.5 font-body text-xs text-pain">Thigh - Tight</span>
       </div>
       <p className="mt-4 text-center font-body text-xs text-muted">Tap a body part to flag soreness after throwing or sprint work</p>
     </div>
