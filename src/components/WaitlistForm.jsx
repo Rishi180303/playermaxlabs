@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const initialState = {
   firstName: "",
@@ -14,6 +15,7 @@ const initialState = {
 
 export default function WaitlistForm() {
   const [form, setForm] = useState(initialState);
+  const [customRole, setCustomRole] = useState("");
   const [loading, setLoading] = useState(false);
   const [popup, setPopup] = useState({ open: false, message: "", type: "success" });
 
@@ -27,10 +29,14 @@ export default function WaitlistForm() {
     setLoading(true);
 
     try {
+      const submitData = {
+        ...form,
+        role: form.role === "Other" ? customRole : form.role,
+      };
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(submitData),
       });
 
       const data = await response.json();
@@ -40,6 +46,7 @@ export default function WaitlistForm() {
       }
 
       setForm(initialState);
+      setCustomRole("");
       setPopup({
         open: true,
         type: "success",
@@ -152,7 +159,28 @@ export default function WaitlistForm() {
             <option value="" disabled>Select your role</option>
             <option value="Athlete">Athlete</option>
             <option value="Coach">Coach</option>
+            <option value="Other">Other</option>
           </select>
+          <AnimatePresence initial={false}>
+            {form.role === "Other" && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 48, opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className="mt-2 overflow-hidden"
+              >
+                <input
+                  type="text"
+                  required
+                  value={customRole}
+                  onChange={(e) => setCustomRole(e.target.value)}
+                  placeholder="Enter your role"
+                  className="w-full rounded-lg border border-card-border bg-bg px-3 py-2.5 font-body text-sm text-fg placeholder:text-muted focus:border-accent focus:outline-none"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         <div>
