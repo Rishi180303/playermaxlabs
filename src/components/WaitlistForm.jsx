@@ -141,16 +141,18 @@ export default function WaitlistForm() {
           <label htmlFor="role" className="font-body text-sm font-medium text-fg">
             Role *
           </label>
-          <input
+          <select
             id="role"
             name="role"
-            type="text"
             required
             value={form.role}
             onChange={onChange}
-            placeholder="e.g. Operations"
-            className="mt-2 w-full rounded-lg border border-card-border bg-bg px-3 py-2.5 font-body text-sm text-fg placeholder:text-muted focus:border-accent focus:outline-none"
-          />
+            className="mt-2 w-full rounded-lg border border-card-border bg-bg px-3 py-2.5 font-body text-sm text-fg focus:border-accent focus:outline-none"
+          >
+            <option value="" disabled>Select your role</option>
+            <option value="Athlete">Athlete</option>
+            <option value="Coach">Coach</option>
+          </select>
         </div>
 
         <div>
